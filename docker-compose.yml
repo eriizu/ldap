@@ -1,0 +1,26 @@
+version: "3"
+
+services:
+  ldap-admin:
+    image: rschaeuble/phpldapadmin:latest
+    restart: always
+    ports:
+      - 8080:80
+    links:
+      - ldap
+    env_file: conf.env
+
+  ldap:
+    build: .
+    restart: always
+    domainname: ldap.eriizu.com
+    env_file: conf.env
+    ports:
+      - 389:389
+    volumes:
+      - "ldap-data:/var/lib/openldap/openldap-data/"
+      - "ldap-config:/etc/openldap"
+
+volumes:
+  ldap-data:
+  ldap-config:

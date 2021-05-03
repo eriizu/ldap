@@ -1,0 +1,11 @@
+dn: dc=domain-to-replace,dc=com
+objectClass: dcObject
+objectClass: organization
+dc: domain-to-replace
+o: organisation
+description: Students and staff directory
+
+dn: cn=root,dc=domain-to-replace,dc=com
+objectClass: organizationalRole
+cn: root
+description: Directory Manager
